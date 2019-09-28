@@ -1,49 +1,33 @@
 
 [![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-# Project name: one liner summary
+# Rescue habit
 
-Add a brief description here
-
-## Installation (OSX) (optional)
-
-Use the brew package manager.
-
-```bash
-brew tap functionall/neat  https://github.com/functioncall/homebrew-neat
-brew install functioncall/neat/neat
-```
+A conversational based habit tracker
 
 ## Setup (if needed)
 
 ### clone it
 ```bash
-git clone git@github.com:developit/express-es6-rest-api.git
-cd express-es6-rest-api
+git clone https://github.com/functioncall/rescue-habit
 ```
 
 ### Install dependencies
 ```
-npm install
+pip install -r requirements.txt
 ```
 
 ### Start development live-reload server
 ```
-PORT=8080 npm run dev
+python manage.py runserver
 ```
 
 ### Start production server:
 ```
-PORT=8080 npm start
+<add command here>
 ```
 
-## Usage (if required)
-
-```
-python neat
-```
-
-## Docker Support
+## Docker Support <will be updated shortly>
 ```sh
 cd express-es6-rest-api
 
