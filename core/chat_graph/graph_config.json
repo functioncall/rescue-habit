@@ -1,0 +1,23 @@
+[
+  {
+    "pre": "ID1",
+    "quick_replies": [
+      {
+        "payload": "1",
+        "content_type": "text",
+        "title": "Yes"
+      },
+      {
+        "payload": "0",
+        "content_type": "text",
+        "title": "No"
+      }
+    ],
+    "text": [
+      "Did you did this? {{ habit }}!"
+    ],
+    "next": "",
+    "media": "",
+    "name": "SURVEY"
+  }
+]

@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <!--<p>Log: {{ result.items }}</p>-->
+    <!--Display column header-->
+    <div class="row">
+        <div class="col-3" style="color: grey; font-size: 15px"></div>
+        {% for day in current_month_days_range %}
+            <div class="box-header">{{ day }}&nbsp</div>
+        {% endfor %}
+    </div>
+    <!--Display data-->
+    {% for key, value in result.items %}
+    <div class="row">
+        <div class="col-3" style="text-align:right; vertical-align: top">{{ key.title }}</div>
+        {% for k, val in value.items %}
+            <!--<div class="col-0">| {{ val }} &nbsp</div>-->
+            {% if val%}
+                <div class="box green"></div>
+            {% else %}
+                <div class="box grey"></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+{% endblock content %}
