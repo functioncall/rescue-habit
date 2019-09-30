@@ -14,7 +14,7 @@
       }
     ],
     "text": [
-      "Did you did this? {{ habit }}!"
+      "Did you do this activity today? {{ habit }}!"
     ],
     "next": "",
     "media": "",

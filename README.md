@@ -5,7 +5,7 @@
 
 A conversational based habit tracker
 
-## Setup (if needed)
+## Setup
 
 ### clone it
 ```bash

@@ -16,7 +16,10 @@ def fixed_type_response(chat_graph, message, sender_id, page_access_token):
     return chat_graph.get_node(node_name)\
         .data \
         .extract_message(
-            text_response_data=function_data_map(node_name)[KEYS.TXT](),
+            text_response_data=function_data_map(node_name)[KEYS.TXT](**{
+                KEYS.SENDER_ID: sender_id,
+                KEYS.MESSAGE: message
+            }),
             quick_reply_response_data=function_data_map(node_name)[KEYS.QR](),
             attachment_response_data=function_data_map(node_name)[KEYS.AT]()
         ) \

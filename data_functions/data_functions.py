@@ -2,15 +2,11 @@ import ast
 import json
 import os
 import random
-import traceback
 
-import requests
-from django.conf import settings
 from django.core import serializers
 from django.core.cache import cache
-
+from blog.models import Post
 from commons.emoji import EMOJI
-from commons.errors import ChatNodeNotFound, ChatNodeNameTypeError
 from constants import KEYS, CAPS
 
 
@@ -98,6 +94,12 @@ def add_happy(**args):
 
 
 def attach_survey_text(**args):
+    content = args.get(KEYS.CONTENT)
+
+    # create survey for every user
+    # get current survey instance for this user
+    # store response
+    #
 
     return [{
         "habit": "coding"

@@ -132,13 +132,13 @@ class Response(object):
         print("endpoint: ", os.environ.get("RECEIVING_ENDPOINT"))
 
         if self.params.get('access_token'):
-            r = requests.post(
-                "https://graph.facebook.com/v4.0/me/messages",
-                params=self.params,
-                headers=self.headers,
-                data=json.dumps(data)
-            )
-            print(r.text)
+            # r = requests.post(
+            #     "https://graph.facebook.com/v4.0/me/messages",
+            #     params=self.params,
+            #     headers=self.headers,
+            #     data=json.dumps(data)
+            # )
+            # print(r.text)
 
             return JsonResponse(data, status=200)
         else:
