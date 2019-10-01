@@ -8,6 +8,7 @@ from django.core.cache import cache
 from blog.models import Post
 from commons.emoji import EMOJI
 from constants import KEYS, CAPS
+from survey import survey
 
 
 def add_emoji(**args):
@@ -94,27 +95,52 @@ def add_happy(**args):
 
 
 def attach_survey_text(**args):
-    content = args.get(KEYS.CONTENT)
+    survey_instance = args[KEYS.SURVEY_INSTANCE]
+    if survey_instance is not None:
+        return [{
+            "habit": survey_instance.get("post")
+        }]
+    else:
+        return [{}]
 
-    # create survey for every user
-    # get current survey instance for this user
-    # store response
-    #
+def create_collection(data, post_id):
+    collection = []
+    for doc in data:
+        for key, val in doc.items():
+            collection.append({
+                "title": key,
+                "payload": str(post_id) + "_" + str(val),
+                "content_type": "text"
+            })
+    return collection
 
-    return [{
-        "habit": "coding"
-    }]
+
+def attach_survey_qr(**args):
+    survey_instance = args[KEYS.SURVEY_INSTANCE]
+    if survey_instance is not None:
+        next_post_id = survey_instance.get("post_id")
+        data = [{"Yes": "1"}, {"No": "0"}]
+
+        collection = create_collection(data, next_post_id)
+
+        return collection
+    else:
+        return {}
+
+
+def attach_text(**args):
+    pass
 
 
 node_function_map = {
-    'SMALL_TALK': {
-        "txt": no_op,
+    'POST_SURVEY': {
+        "txt": attach_text,
         "qr": no_op,
         "at": no_op
     },
     'SURVEY': {
         "txt": attach_survey_text,
-        "qr": no_op,
+        "qr": attach_survey_qr,
         "at": no_op
     },
     'GETTING_STARTED': {

@@ -19,7 +19,6 @@ from messenger.utils.receiver_unit.receiver_unit import messenger_message_parser
 
 def retrieve_chat_graph(page_access_token=None, page_id=None):
     json_chat_flow_path = os.path.join(os.getcwd(), "core/chat_graph/graph_config.json")
-
     with open(json_chat_flow_path, "r") as json_chat_flow_file:
         json_chat_flow = json.load(json_chat_flow_file)
 

@@ -42,7 +42,6 @@ class Response(object):
 
         self.text = TextResponse(data["text"]) \
             if "text" in data else None
-
         self.quick_replies = QuickReplyResponse(data["quick_replies"]) \
             if "quick_replies" in data else None
 
@@ -60,7 +59,6 @@ class Response(object):
         Orders messages before sending
         :param recipient_id: facebook_id of a chat participant
         """
-        print('send to')
         self.params = {"access_token": page_access_token}
         self.add_recipient_id(recipient_id)
         r = None
@@ -89,8 +87,6 @@ class Response(object):
         :rtype: Response
         """
 
-        print("here: ", self.text)
-        print("text_response_data:", text_response_data)
         if self.text:
             self.data["message"]["text"] = self.text.eval(text_response_data)
 
@@ -125,11 +121,6 @@ class Response(object):
                 type: message[type] for type in types
             }
         }
-
-        print('data', data)
-        print("param", self.params)
-        print("headers", self.headers)
-        print("endpoint: ", os.environ.get("RECEIVING_ENDPOINT"))
 
         if self.params.get('access_token'):
             # r = requests.post(

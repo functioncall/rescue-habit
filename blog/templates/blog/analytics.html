@@ -3,6 +3,7 @@
 {% block content %}
     <!--<p>Log: {{ result.items }}</p>-->
     <!--Display column header-->
+
     <div class="row">
         <div class="col-3" style="color: grey; font-size: 15px"></div>
         {% for day in current_month_days_range %}
@@ -12,7 +13,7 @@
     <!--Display data-->
     {% for key, value in result.items %}
     <div class="row">
-        <div class="col-3" style="text-align:right; vertical-align: top">{{ key.title }}</div>
+        <div class="col-3" style="text-align:right; font-size: 10px">{{ key.title }}</div>
         {% for k, val in value.items %}
             <!--<div class="col-0">| {{ val }} &nbsp</div>-->
             {% if val%}

@@ -1,23 +1,22 @@
 [
   {
     "pre": "ID1",
-    "quick_replies": [
-      {
-        "payload": "1",
-        "content_type": "text",
-        "title": "Yes"
-      },
-      {
-        "payload": "0",
-        "content_type": "text",
-        "title": "No"
+    "quick_replies": {
+      "iterable": {
+        "title": "{{title}}",
+        "payload": "{{payload}}",
+        "content_type": "{{content_type}}"
       }
-    ],
+    },
     "text": [
       "Did you do this activity today? {{ habit }}!"
     ],
     "next": "",
     "media": "",
     "name": "SURVEY"
+  },
+  {
+    "name": "POST_SURVEY",
+    "text": ["Cool! All done."]
   }
 ]
